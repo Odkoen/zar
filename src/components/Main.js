@@ -6,7 +6,7 @@ const Main = (props) => {
   const { products, Nemeh, Hasah, auth } = props;
   if (!auth) {
     alert("Та бүртгэл үүсгэнэ үү");
-    return <Redirect to="/signup" />;n
+    return <Redirect to="/signup" />;
   }
   return (
     <main className="flex flex-col flex-shrink-0 w-3/6 bg-white text-black h-screen m-10">
