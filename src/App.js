@@ -50,9 +50,7 @@ function App() {
           </Route>
         </div>
       </div>
-      {/* <Route path="/sags" component={Basket} /> */}
       <Route path="/sags">
-        {" "}
         <Basket Nemeh={Nemeh} Hasah={Hasah} cardItems={cardItems} />
       </Route>
       <Route path="/login" component={Login} />

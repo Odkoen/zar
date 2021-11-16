@@ -10,6 +10,9 @@ function Signup(props) {
   const [error, setError] = useState("");
 
   const signup = () => {
+    if (email === "") {
+      setError("Нэвтрэх нэр оруулна уу");
+    }
     if (password1 === password2) {
       history.push("/");
       props.a();
