@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.css";
 
-function Signup() {
+function Signup(props) {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");
@@ -10,10 +10,15 @@ function Signup() {
   const [error, setError] = useState("");
 
   const signup = () => {
-    history.push("/");
-    password1 === password2
-      ? alert("amjilt")
-      : setError("Нууц үг хоорондоо тохирохгүй байна");
+    if (password1 === password2) {
+      history.push("/");
+      props.a();
+    } else {
+      setError("Нууц үг хоорондоо тохирохгүй байна");
+    }
+  };
+  const signout = () => {
+    props.b();
   };
   const changeEmail = (e) => {
     setEmail(e.target.value);
@@ -30,7 +35,7 @@ function Signup() {
       <div className="h-screen w-screen zurag  flex justify-center">
         <div className="bg-white rounded h-96 w-96 mt-10 flex flex-col items-center px-0">
           <div className=" mt-6 text-lg text-blue-700 font-semibold">
-            <p>Бүртгэл үүсгэх</p>
+            <p>Бүртгэл</p>
           </div>
 
           <input
@@ -56,10 +61,16 @@ function Signup() {
           ></input>
           <span className="text-red-500">{error}</span>
           <button
-            className="bg-blue-500 rounded text-center font-semibold text-white w-3/4 mt-4 h-10"
+            className="bg-blue-500 rounded text-center font-semibold text-white w-2/4 mt-4 py-2 h-12"
             onClick={signup}
           >
             Бүртгүүлэх
+          </button>
+          <button
+            className="bg-red-500 rounded text-center font-semibold text-white w-2/4 py-2 mt-4 h-15"
+            onClick={signout}
+          >
+            Гарах
           </button>
 
           <div className="w-3/4 mt-4 flex justify-between"></div>
